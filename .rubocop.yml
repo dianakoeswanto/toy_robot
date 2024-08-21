@@ -1,0 +1,8 @@
+ParallelAssignment:
+  Enabled: false
+
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - './spec/**/*'
+    - './spec/*'
