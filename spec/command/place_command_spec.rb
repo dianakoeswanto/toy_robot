@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
-require_relative '../../lib/command/place_command'
-require_relative '../../lib/model/robot'
+require "spec_helper"
+require "command/place_command"
+require "model/robot"
 
 describe PlaceCommand do
   let(:robot) { instance_double(Robot) }
