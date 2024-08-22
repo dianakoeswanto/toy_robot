@@ -31,15 +31,15 @@ Ruby 3.3.4
 
 ## Setup
 
-1. Clone this repo<br />`git clone git@github.com:dianakoeswanto/toy_robot.git`<br/><br/>
-2. Change to the app directory<br />`cd lib/to_robot`<br /><br />
+1. Clone this repo<br />`git clone git@github.com:dianakoeswanto/toy_robot.git`<br /><br />
+2. Change to the app directory<br />`cd toy_robot`<br /><br />
 3. Install dependencies<br />`bundle install`
 
 ## Running the app
 
 `ruby lib/main.rb`
 
-A few test inputs and expected outputs have been provided under `test_data`. Feel free to use them by copying and pasting them on the command line.
+A few test inputs and expected outputs have been provided under `test_data/test1.txt`. Feel free to use them by copying and pasting them on the command line.
 
 Enter `EXIT` to quit the application.
 
