@@ -20,6 +20,8 @@ class Main
     end
   rescue SystemExit, Interrupt
     puts 'Bye!'
+  rescue StandardError => e
+    puts e.message
   end
 
   private
