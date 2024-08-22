@@ -7,4 +7,6 @@ class Robot
   def move; end
 
   def left; end
+
+  def right; end
 end

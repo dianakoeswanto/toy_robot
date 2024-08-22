@@ -9,14 +9,20 @@ describe RightCommand do
 
   context '#execute' do
     it 'should turn robot to the right' do
+      expect(robot).to receive(:right)
+
+      RightCommand.from_string('RIGHT', robot).execute
     end
   end
 
   context 'from_string' do
     it 'should return an instance of RightCommand when given a valid command' do
+      command = RightCommand.from_string('RIGHT', robot)
+      expect(command).to_not be_nil
     end
 
     it 'should throw argument exception when command string is not RIGHT' do
+      expect { RightCommand.from_string('RIGHT NOW', robot) }.to raise_error(ArgumentError)
     end
   end
 end
