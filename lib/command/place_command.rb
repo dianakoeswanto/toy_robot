@@ -21,24 +21,28 @@ class PlaceCommand < BaseCommand
     robot.place(@x_coord, @y_coord, @orientation)
   end
 
-  def self.from_string(command_str)
-    raise ArgumentError, 'Not a valid PLACE command' unless command_str.start_with?(PLACE)
+  class << self
+    def from_string(command_str)
+      raise ArgumentError, 'Not a valid PLACE command' unless command_str.start_with?(PLACE)
 
-    args = command_str.delete_prefix(PLACE).split(',').map(&:strip)
-    validate_args(args)
-    new(args[0], args[1], args[2])
-  end
-
-  def self.validate_args(args)
-    raise ArgumentError, 'PLACE command requires three comma separated arguments' if args.length != 3
-
-    x_coord, y_coord, orientation = args
-    if Integer(x_coord, exception: false).nil? || Integer(y_coord, exception: false).nil?
-      raise ArgumentError, 'PLACE command requires the first two arguments to be numbers'
+      args = command_str.delete_prefix(PLACE).split(',').map(&:strip)
+      validate_args(args)
+      new(args[0], args[1], args[2])
     end
 
-    return if PlaceCommand::VALID_ORIENTATIONS.include?(orientation)
+    private
 
-    raise ArgumentError, "PLACE command requires the last argument to be either #{PlaceCommand::VALID_ORIENTATIONS}"
+    def validate_args(args)
+      raise ArgumentError, 'PLACE command requires three comma separated arguments' if args.length != 3
+
+      x_coord, y_coord, orientation = args
+      if Integer(x_coord, exception: false).nil? || Integer(y_coord, exception: false).nil?
+        raise ArgumentError, 'PLACE command requires the first two arguments to be numbers'
+      end
+
+      return if PlaceCommand::VALID_ORIENTATIONS.include?(orientation)
+
+      raise ArgumentError, "PLACE command requires the last argument to be either #{PlaceCommand::VALID_ORIENTATIONS}"
+    end
   end
 end
