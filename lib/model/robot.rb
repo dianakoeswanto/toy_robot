@@ -5,4 +5,6 @@ class Robot
   def place(x_coord, y_coord, orientation); end
 
   def move; end
+
+  def left; end
 end
