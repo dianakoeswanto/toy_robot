@@ -9,13 +9,13 @@ require_relative 'base_command'
 class RightCommand < BaseCommand
   RIGHT = 'RIGHT'
 
-  def self.from_string(command_str, robot)
+  def self.from_string(command_str)
     raise ArgumentError, 'Not a valid RIGHT command' unless command_str.strip == RIGHT
 
-    new(robot)
+    new
   end
 
-  def execute
-    @robot.right
+  def execute(robot)
+    robot.right
   end
 end

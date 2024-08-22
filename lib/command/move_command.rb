@@ -9,13 +9,13 @@ require_relative 'base_command'
 class MoveCommand < BaseCommand
   MOVE = 'MOVE'
 
-  def self.from_string(command_str, robot)
+  def self.from_string(command_str)
     raise ArgumentError, 'Not a valid MOVE command' unless command_str.strip == MOVE
 
-    new(robot)
+    new
   end
 
-  def execute
-    @robot.move
+  def execute(robot)
+    robot.move
   end
 end

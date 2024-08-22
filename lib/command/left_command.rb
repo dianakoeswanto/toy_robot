@@ -9,13 +9,13 @@ require_relative 'base_command'
 class LeftCommand < BaseCommand
   LEFT = 'LEFT'
 
-  def self.from_string(command_str, robot)
+  def self.from_string(command_str)
     raise ArgumentError, 'Not a valid LEFT command' unless command_str.strip == LEFT
 
-    new(robot)
+    new
   end
 
-  def execute
-    @robot.left
+  def execute(robot)
+    robot.left
   end
 end

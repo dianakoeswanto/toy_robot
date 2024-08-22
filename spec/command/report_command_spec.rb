@@ -15,24 +15,24 @@ describe ReportCommand do
       expect(robot).to receive(:orientation).and_return(:east)
       expect(STDOUT).to receive(:puts).with('Output: 2,2,EAST')
 
-      ReportCommand.from_string('REPORT', robot).execute
+      ReportCommand.from_string('REPORT').execute(robot)
     end
 
     it 'should do nothing when robot has not been placed' do
       expect(robot).to receive(:placed?).and_return(false)
 
-      ReportCommand.from_string('REPORT', robot).execute
+      ReportCommand.from_string('REPORT').execute(robot)
     end
   end
 
   context 'from_string' do
     it 'should return an instance of ReportCommand when given a valid command' do
-      command = ReportCommand.from_string('REPORT', robot)
+      command = ReportCommand.from_string('REPORT')
       expect(command).to_not be_nil
     end
 
     it 'should throw argument exception when command string is not REPORT' do
-      expect { ReportCommand.from_string('REPORTING', robot) }.to raise_error(ArgumentError)
+      expect { ReportCommand.from_string('REPORTING') }.to raise_error(ArgumentError)
     end
   end
 end

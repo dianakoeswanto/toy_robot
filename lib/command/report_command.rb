@@ -10,13 +10,13 @@ require_relative 'base_command'
 class ReportCommand < BaseCommand
   REPORT = 'REPORT'
 
-  def self.from_string(command_str, robot)
+  def self.from_string(command_str)
     raise ArgumentError, 'Not a valid REPORT command' unless command_str.strip == REPORT
 
-    new(robot)
+    new
   end
 
-  def execute
-    puts "Output: #{[@robot.x_coord, @robot.y_coord, @robot.orientation.upcase].join(',')}" if @robot.placed?
+  def execute(robot)
+    puts "Output: #{[robot.x_coord, robot.y_coord, robot.orientation.upcase].join(',')}" if robot.placed?
   end
 end
