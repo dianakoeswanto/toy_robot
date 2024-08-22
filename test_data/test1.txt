@@ -1,0 +1,76 @@
+Here are some test scenenarios that can be used on the app.
+Each test case assumes a fresh application (i.e. no commands have been issued yet)
+Type "EXIT" to quit the application
+
+---------------------------
+
+Test 1: Commands are ignored before PLACE is entered
+
+Input:
+MOVE
+LEFT
+RIGHT
+REPORT
+
+Output: nothing. Commands have no affect.
+
+---------------------------
+
+Test 2: Invalid command is entered
+
+Input:
+HELLO WORLD
+
+Output: Please enter a valid command.
+
+---------------------------
+
+Test 3: Place robot in a valid position and orientation
+
+Input:
+PLACE 3,3,NORTH
+REPORT
+
+Output: 3,3,NORTH
+
+---------------------------
+
+Test 4: Place robot outside the table top boundary
+
+Input:
+PLACE -1,6,NORTH
+REPORT
+
+Output: nothing. Robot is not placed on the tabletop as it's outside the table boundary. 
+
+---------------------------
+
+Test 4: Valid series of commands
+
+Input:
+PLACE 0,1,NORTH
+MOVE
+MOVE
+RIGHT
+RIGHT
+MOVE
+LEFT
+MOVE
+REPORT
+
+Output: 1,2,EAST
+
+---------------------------
+
+Test 4: Robot does not fall of the table
+
+Input:
+PLACE 0,0,WEST
+MOVE
+MOVE
+MOVE
+REPORT
+
+Output: 0,0,WEST
+
+---------------------------
